@@ -10,4 +10,3 @@ if options == "Starting Page":
     st.subheader("Made by Leo Sun (NPTL)")
 if options == "Main Program":
     dataset = st.file_uploader(label = "Upload your .csv file here: ")
-    print(dataset)
