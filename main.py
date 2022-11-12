@@ -9,6 +9,7 @@ options = st.sidebar.selectbox(
     "Contents",
     ("Starting Page", "Main Program (demo)")
 )
+
 if options == "Starting Page":
     st.title("Predictor - Eton College Environmental Hackathon")
     st.header("A machine-learning algorithm that uses past data and predicts possibility of natural disasters, which is made more prominent by climate change.")
