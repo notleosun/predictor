@@ -15,6 +15,6 @@ if options == "Starting Page":
     st.subheader("Made by Leo Sun (NPTL)")
 if options == "Main Program":
     uploaded_file = st.file_uploader(label = "Upload your .csv file here: ")
-   
+    print(uploaded_file)
     fig = px.imshow(uploaded_file.corr())
     st.plotly_chart(fig, use_container_width=True)
