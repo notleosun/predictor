@@ -11,5 +11,5 @@ if options == "Starting Page":
     st.subheader("Made by Leo Sun (NPTL)")
 if options == "Main Program":
     uploaded_file = st.file_uploader(label = "Upload your .csv file here: ")
-    bytes_data = pd.read_csv(uploaded_file.name()
+    bytes_data = pd.read_csv(uploaded_file.name
     st.write(bytes_data)
