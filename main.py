@@ -25,3 +25,5 @@ if options == "Main Program (demo)":
     st.write("Here is a correlation graph between columns of this dataset.")
     fig = px.imshow(train.corr())
     st.plotly_chart(fig, use_container_width=True)
+    labels = st.text_input(label = "Please enter the labels needed for the model to run. (Please seperate words with a single space.)").split()
+    print(labels)
