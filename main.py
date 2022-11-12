@@ -17,6 +17,8 @@ if options == "Starting Page":
 if options == "Main Program (demo)":
     train = pd.read_csv("cleaned_train.csv")
     test = pd.read_csv("cleaned_test.csv")
+    train = train.drop(['Unnamed: 0'], axis = 1)
+    test = test.drop(['Unnamed: 0'], axis = 1)
     st.write("This will be the dataset used in this demo.")
     st.write(train)
     st.delay(1000)
