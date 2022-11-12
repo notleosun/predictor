@@ -4,6 +4,15 @@ import plotly.graph_objects as go
 import streamlit as st
 import numpy as np
 from plotly.subplots import make_subplots
+from sklearn import metrics
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.tree import DecisionTreeRegressor
 
 options = st.sidebar.selectbox(
     "Contents",
