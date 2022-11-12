@@ -1,6 +1,10 @@
-import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
+import streamlit as st
+import numpy as np
+from plotly.subplots import make_subplots
+
 options = st.sidebar.selectbox(
     "Contents",
     ("Starting Page", "Demo page (used in pitching video only)", "Main Program")
@@ -12,5 +16,5 @@ if options == "Starting Page":
 if options == "Main Program":
     uploaded_file = st.file_uploader(label = "Upload your .csv file here: ")
    
-    fig = px.corr(uploaded_file)
+    fig = px.imshow(uploaded_file.corr())
     st.plotly_chart(fig, use_container_width=True)
