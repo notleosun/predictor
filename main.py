@@ -34,28 +34,29 @@ if options == "Main Program (demo)":
     labels = st.text_input(label = "Please enter the labels needed for the model to run. (Please seperate words with a single space.)").split()
     to_predict = st.text_input(label = "Which label do you want to predict?")
     
-    def make_prediction(df, estimator, features_to_fit, to_predict):
-    
-    # Create our target and labels
-        X = df[features_to_fit]
-        y = df[to_predict]
-    
-    # Create training and testing data sets
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, 
-            random_state=43) 
-    
-    # Fit the regressor with the full dataset to be used with predictions
-        estimator.fit(X, y)
-    
-    # Do ten-fold cross-validation and compute our average accuracy
-        cv = cross_val_score(estimator, X_test, y_test, cv=10)
-        print('Accuracy:', cv.mean())
+    if labels != None and to_predict != None:
+        def make_prediction(df, estimator, features_to_fit, to_predict):
 
-    # Predict today's closing price
-        X_new = df_today[features_to_fit]
-        prediction = estimator.predict(X_new)
-    
-    # Return the predicted closing price
-        return prediction
+        # Create our target and labels
+            X = df[features_to_fit]
+            y = df[to_predict]
+
+        # Create training and testing data sets
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, 
+                random_state=43) 
+
+        # Fit the regressor with the full dataset to be used with predictions
+            estimator.fit(X, y)
+
+        # Do ten-fold cross-validation and compute our average accuracy
+            cv = cross_val_score(estimator, X_test, y_test, cv=10)
+            print('Accuracy:', cv.mean())
+
+        # Predict today's closing price
+            X_new = df_today[features_to_fit]
+            prediction = estimator.predict(X_new)
+
+        # Return the predicted closing price
+            return prediction
     pipe = make_pipeline(StandardScaler(), LinearRegression())
     print('Predicted Results: %.2f\n' % make_prediction(train, pipe))
