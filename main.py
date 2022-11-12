@@ -10,5 +10,5 @@ if options == "Starting Page":
     st.header("A machine-learning algorithm that uses past data and predicts possibility of natural disasters, which is made more prominent by climate change.")
     st.subheader("Made by Leo Sun (NPTL)")
 if options == "Main Program":
-    dataset = pd.read_csv(st.file_uploader(label = "Upload your .csv file here: "))
+    dataset = st.file_uploader(label = "Upload your .csv file here: ").read()
     st.write(dataset)
