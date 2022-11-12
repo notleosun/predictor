@@ -56,7 +56,7 @@ if options == "Results":
             X_new = df_today[features_to_fit]
             prediction = estimator.predict(X_new)
 
-        # Return the predicted closing price
+        # Return the predicted result
             return prediction
         
     pipe = make_pipeline(StandardScaler(), LinearRegression())
