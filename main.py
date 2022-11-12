@@ -58,5 +58,6 @@ if options == "Results":
 
         # Return the predicted closing price
             return prediction
+        
     pipe = make_pipeline(StandardScaler(), LinearRegression())
     print('Predicted Results: %.2f\n' % make_prediction(train, pipe))
