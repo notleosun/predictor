@@ -16,7 +16,7 @@ from sklearn.tree import DecisionTreeRegressor
 
 options = st.sidebar.selectbox(
     "Contents",
-    ("Starting Page", "Main Program (demo)")
+    ("Starting Page", "Main Program (demo)", "Results")
 )
 
 if options == "Starting Page":
@@ -34,7 +34,7 @@ if options == "Main Program (demo)":
     labels = st.text_input(label = "Please enter the labels needed for the model to run. (Please seperate words with a single space.)").split()
     to_predict = st.text_input(label = "Which label do you want to predict?")
     
-    if labels != None and to_predict != None:
+if options == "Results":
         def make_prediction(df, estimator, features_to_fit, to_predict):
 
         # Create our target and labels
