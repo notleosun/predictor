@@ -15,8 +15,8 @@ if options == "Starting Page":
     st.header("A machine-learning algorithm that uses past data and predicts possibility of natural disasters, which is made more prominent by climate change.")
     st.subheader("Made by Leo Sun (NPTL)")
 if options == "Main Program (demo)":
-    train = pd.read_csv("cleaned_train")
-    test = pd.read_csv("cleaned_test")
+    train = pd.read_csv("cleaned_train.csv")
+    test = pd.read_csv("cleaned_test.csv")
     st.write("This will be the dataset used in this demo.")
     st.write(train)
     fig = px.imshow(uploaded_file.corr())
