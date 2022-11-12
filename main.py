@@ -11,5 +11,10 @@ if options == "Starting Page":
     st.subheader("Made by Leo Sun (NPTL)")
 if options == "Main Program":
     dataset = st.file_uploader(label = "Upload your .csv file here: ")
-    dataset = pd.read_csv(dataset)
-    st.write(dataset)
+    if f is not None:
+            path_in = f.name
+            print(path_in)
+        else:
+            path_in = None
+    csv = pd.read_csv(path_in)
+    st.write(csv)
