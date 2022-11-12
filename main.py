@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+import plotly.express as px
 options = st.sidebar.selectbox(
     "Contents",
     ("Starting Page", "Demo page (used in pitching video only)", "Main Program")
@@ -11,5 +11,6 @@ if options == "Starting Page":
     st.subheader("Made by Leo Sun (NPTL)")
 if options == "Main Program":
     uploaded_file = st.file_uploader(label = "Upload your .csv file here: ")
-    bytes_data = pd.read_csv(uploaded_file.name
-    st.write(bytes_data)
+    bytes_data = uploaded_file.read()
+    fig = px.corr(bytes_data)
+    st.plotly_chart(fig, use_container_width=True)
