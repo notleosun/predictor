@@ -19,5 +19,6 @@ if options == "Main Program (demo)":
     test = pd.read_csv("cleaned_test.csv")
     st.write("This will be the dataset used in this demo.")
     st.write(train)
-    fig = px.imshow(uploaded_file.corr())
+    st.write("Here is a correlation graph between columns of this dataset.")
+    fig = px.imshow(train.corr())
     st.plotly_chart(fig, use_container_width=True)
