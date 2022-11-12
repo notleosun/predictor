@@ -16,6 +16,7 @@ if options == "Starting Page":
 if options == "Main Program (demo)":
     train = pd.read_csv("cleaned_train")
     test = pd.read_csv("cleaned_test")
-    print(uploaded_file)
+    st.write("This will be the dataset used in this demo.")
+    st.write(train)
     fig = px.imshow(uploaded_file.corr())
     st.plotly_chart(fig, use_container_width=True)
