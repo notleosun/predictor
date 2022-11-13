@@ -56,7 +56,7 @@ labels = None
 
 options = st.sidebar.selectbox(
     "Contents",
-    ("Starting Page", "Main Program (demo)", "Results")
+    ("Starting Page", "Main Program (demo)")
 )
 
 if options == "Starting Page":
