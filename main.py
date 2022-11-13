@@ -52,6 +52,8 @@ def make_prediction(df, estimator, features_to_fit, to_predict):
         
 train = pd.read_csv("cleaned_train.csv")
 train = train.drop(['Unnamed: 0'], axis = 1)
+labels = None
+to_predict = None
 
 options = st.sidebar.selectbox(
     "Contents",
@@ -69,5 +71,6 @@ if options == "Main Program (demo)":
     fig = px.imshow(train.corr())
     st.plotly_chart(fig, use_container_width=True)
     labels = st.multiselect("What are the labels required for the model", train.columns)
-    to_predict = st.multiselect("What do you want to predict", train.columns)
-    print('Predicted Results: %.2f\n' % make_prediction(train, LogisticRegression(), labels, to_predict))
+    to_predict = st.selectbox("What do you want to predict", train.columns)
+    eee = make_prediction(train, LogisticRegression(), labels, to_predict)
+    print('Predicted Results: %.2f\n' % eee)
