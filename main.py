@@ -72,4 +72,7 @@ if options == "Main Program (demo)":
     labels = st.multiselect("What are the labels required for the model", train.columns)
     if labels is not None:
         eee = make_prediction(train, LogisticRegression(), labels)
-        st.write(eee)
+        pre_v_res = pd.DataFrame({
+        "Actual Rain Status": train["RainTomorrow"],
+        "Predicted Rain Status": eee})
+        st.write(pre_v_res)
