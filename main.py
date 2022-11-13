@@ -22,7 +22,7 @@ def make_prediction(df, estimator, features_to_fit, to_predict):
     y = df[to_predict]
     #Identifying Numeric and categorical variables
     cat_vars = X.select_dtypes(include = ['object','category']).columns
-    num_vars = X.select_dtypes(include = ['number'],exclude=['category']).columns
+    con_vars = X.select_dtypes(include = ['number'],exclude=['category']).columns
 
     # Create training and testing data sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, 
@@ -55,7 +55,7 @@ train = train.drop(['Unnamed: 0'], axis = 1)
 labels = None
 to_predict = None
 
-options = st.sidebar.selectbox(
+options = st.sidebar(
     "Contents",
     ("Starting Page", "Main Program (demo)", "Results")
 )
