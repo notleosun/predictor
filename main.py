@@ -74,4 +74,4 @@ if options == "Main Program (demo)":
     to_predict = st.selectbox("What do you want to predict", [None] + list(train.columns))
     if labels is not None and to_predict is not None:
         eee = make_prediction(train, LogisticRegression(), labels, to_predict)
-        print(f'Predicted Results: {eee}')
+        st.write(eee)
