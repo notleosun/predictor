@@ -15,7 +15,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.compose import ColumnTransformer
 
-def make_prediction(df, estimator, features_to_fit, to_predict):
+def make_prediction(df, estimator, features_to_fit):
 
     # Create our target and labels
     X = df[features_to_fit]
@@ -71,5 +71,5 @@ if options == "Main Program (demo)":
     st.plotly_chart(fig, use_container_width=True)
     labels = st.multiselect("What are the labels required for the model", train.columns)
     if labels is not None:
-        eee = make_prediction(train, LogisticRegression(), labels, to_predict)
+        eee = make_prediction(train, LogisticRegression(), labels)
         st.write(eee)
