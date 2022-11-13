@@ -58,7 +58,7 @@ with st.sidebar:
     option = option_menu(
 		menu_title = 'Navigation Pane',
 		options = ['Starting Page',
-                   'Main Program (demo)'
+                   'Main Program (demo)'],
 		icons = ['bookmark-check', 'bar-chart'],
 		default_index = 0,
 		)
