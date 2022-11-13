@@ -76,6 +76,6 @@ if option == "Main Program (demo)":
 		"Location": train["Location"],
 		"Actual Rain Status": train["RainTomorrow"],
 		"Predicted Rain Status": eee})
-		st.write("Here is the predicted results against the actual results.")
+		st.write("Here are the predicted results against the actual results.")
 		st.write(pre_v_res)
 		st.balloons()
