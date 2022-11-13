@@ -54,14 +54,9 @@ train = pd.read_csv("cleaned_train.csv")
 train = train.drop(['Unnamed: 0'], axis = 1)
 labels = None
 
-with st.sidebar:
-    option = option_menu(
-		menu_title = 'Navigation Pane',
-		options = ['Starting Page',
-                   'Main Program (demo)'],
-		icons = ['bookmark-check', 'bar-chart'],
-		default_index = 0,
-		)
+option = st.sidebar.selectbox("Navigation",
+("Starting Page", "Main Program (demo)")
+)
 
 if option == "Starting Page":
     st.title("Predictor - Eton College Environmental Hackathon")
@@ -77,6 +72,9 @@ if option == "Main Program (demo)":
     if labels is not None:
         eee = make_prediction(train, LogisticRegression(), labels)
         pre_v_res = pd.DataFrame({
+	"Location": train["Location"],
         "Actual Rain Status": train["RainTomorrow"],
         "Predicted Rain Status": eee})
+	st.write("Here is the predicted results against the actual results.")
         st.write(pre_v_res)
+	st.balloons()
