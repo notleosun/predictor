@@ -19,7 +19,7 @@ def make_prediction(df, estimator, features_to_fit, to_predict):
 
     # Create our target and labels
     X = df[features_to_fit]
-    y = df[to_predict]
+    y = df[-1]
     #Identifying Numeric and categorical variables
     cat_vars = X.select_dtypes(include = ['object','category']).columns
     con_vars = X.select_dtypes(include = ['number'],exclude=['category']).columns
@@ -53,7 +53,6 @@ def make_prediction(df, estimator, features_to_fit, to_predict):
 train = pd.read_csv("cleaned_train.csv")
 train = train.drop(['Unnamed: 0'], axis = 1)
 labels = None
-to_predict = None
 
 options = st.sidebar.selectbox(
     "Contents",
@@ -71,7 +70,6 @@ if options == "Main Program (demo)":
     fig = px.imshow(train.corr())
     st.plotly_chart(fig, use_container_width=True)
     labels = st.multiselect("What are the labels required for the model", train.columns)
-    to_predict = st.selectbox("What do you want to predict", [None] + list(train.columns))
-    if labels is not None and to_predict is not None:
+    if labels is not None:
         eee = make_prediction(train, LogisticRegression(), labels, to_predict)
         st.write(eee)
