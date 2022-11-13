@@ -68,6 +68,6 @@ if options == "Main Program (demo)":
     st.write("Here is a correlation graph between columns of this dataset.")
     fig = px.imshow(train.corr())
     st.plotly_chart(fig, use_container_width=True)
-    labels = st.text_input(label = "Please enter the labels needed for the model to run. (Please seperate words with a single space.)").split()
-    to_predict = st.text_input(label = "Which label do you want to predict?")
+    labels = st.multiselect("What are the labels required for the model", train.columns)
+    to_predict = st.multiselect("What do you want to predict", train.columns)
     print('Predicted Results: %.2f\n' % make_prediction(train, LogisticRegression(), labels, to_predict))
