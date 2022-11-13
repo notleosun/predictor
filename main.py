@@ -55,7 +55,7 @@ train = train.drop(['Unnamed: 0'], axis = 1)
 labels = None
 to_predict = None
 
-options = st.sidebar(
+options = st.sidebar.selectbox(label=
     "Contents",
     ("Starting Page", "Main Program (demo)", "Results")
 )
