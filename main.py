@@ -70,8 +70,4 @@ if options == "Main Program (demo)":
     st.plotly_chart(fig, use_container_width=True)
     labels = st.text_input(label = "Please enter the labels needed for the model to run. (Please seperate words with a single space.)").split()
     to_predict = st.text_input(label = "Which label do you want to predict?")
-    
-if options == "Results":
-    
-    
     print('Predicted Results: %.2f\n' % make_prediction(train, LogisticRegression(), labels, to_predict))
