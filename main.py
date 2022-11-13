@@ -54,16 +54,20 @@ train = pd.read_csv("cleaned_train.csv")
 train = train.drop(['Unnamed: 0'], axis = 1)
 labels = None
 
-options = st.sidebar.selectbox(
-    "Contents",
-    ("Starting Page", "Main Program (demo)")
-)
+with st.sidebar:
+    option = option_menu(
+		menu_title = 'Navigation Pane',
+		options = ['Starting Page',
+                   'Main Program (demo)'
+		icons = ['bookmark-check', 'bar-chart'],
+		default_index = 0,
+		)
 
-if options == "Starting Page":
+if option == "Starting Page":
     st.title("Predictor - Eton College Environmental Hackathon")
     st.header("A machine-learning algorithm that uses past data and predicts possibility of natural disasters, which is made more prominent by climate change.")
     st.subheader("Made by Leo Sun (NPTL)")
-if options == "Main Program (demo)":
+if option == "Main Program (demo)":
     st.write("This will be the dataset used in this demo.")
     st.write(train)
     st.write("Here is a correlation graph between columns of this dataset.")
