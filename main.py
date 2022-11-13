@@ -64,12 +64,12 @@ if option == "Starting Page":
 	st.header("A machine-learning algorithm that uses past data and predicts possibility of natural disasters, which is made more prominent by climate change.")
 	st.subheader("Made by Leo Sun (NPTL)")
 if option == "Main Program (demo)":
-	st.write("This will be the dataset used in this demo.")
+	st.write("This will be the dataset used in this demo. Fear not about the value error raised at the bottom of this page -- it will disappear once parameters are placed.")
 	st.write(train)
 	st.write("Here is a correlation graph between columns of this dataset.")
 	fig = px.imshow(train.corr())
 	st.plotly_chart(fig, use_container_width=True)
-	labels = st.multiselect("What are the labels required for the model", train.columns)
+	labels = st.multiselect("What are the labels required for the model? ", train.columns)
 	if labels is not None:
 		eee = make_prediction(train, LogisticRegression(), labels)
 		pre_v_res = pd.DataFrame({
