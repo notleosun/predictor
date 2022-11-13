@@ -71,6 +71,7 @@ if options == "Main Program (demo)":
     fig = px.imshow(train.corr())
     st.plotly_chart(fig, use_container_width=True)
     labels = st.multiselect("What are the labels required for the model", train.columns)
-    to_predict = st.selectbox("What do you want to predict", train.columns)
-    eee = make_prediction(train, LogisticRegression(), labels, to_predict)
-    print('Predicted Results: %.2f\n' % eee)
+    to_predict = st.selectbox("What do you want to predict", [None] + list(train.columns))
+    if labels is not None and to_predict is not None:
+        eee = make_prediction(train, LogisticRegression(), labels, to_predict)
+        print('Predicted Results: %.2f\n' % eee)
