@@ -41,7 +41,7 @@ def make_prediction(df, estimator, features_to_fit):
 
     # Do ten-fold cross-validation and compute our average accuracy
     cv = cross_val_score(pipe, X_test, y_test, cv=10)
-    print('Accuracy:', cv.mean())
+    st.write(f"The accuracy is {cv.mean()}")
 
     # Predict today's result
     X_new = df[features_to_fit]
