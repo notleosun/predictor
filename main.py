@@ -1,4 +1,4 @@
-import pandas as pd
+	import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
@@ -69,12 +69,12 @@ if option == "Main Program (demo)":
     fig = px.imshow(train.corr())
     st.plotly_chart(fig, use_container_width=True)
     labels = st.multiselect("What are the labels required for the model", train.columns)
-    if labels is not None:
-	eee = make_prediction(train, LogisticRegression(), labels)
-	pre_v_res = pd.DataFrame({
-	"Location": train["Location"],
-	"Actual Rain Status": train["RainTomorrow"],
-	"Predicted Rain Status": eee})
-	st.write("Here is the predicted results against the actual results.")
-	st.write(pre_v_res)
-	st.balloons()
+	if labels is not None:
+		eee = make_prediction(train, LogisticRegression(), labels)
+		pre_v_res = pd.DataFrame({
+		"Location": train["Location"],
+		"Actual Rain Status": train["RainTomorrow"],
+		"Predicted Rain Status": eee})
+		st.write("Here is the predicted results against the actual results.")
+		st.write(pre_v_res)
+		st.balloons()
