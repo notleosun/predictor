@@ -19,7 +19,7 @@ def make_prediction(df, estimator, features_to_fit):
 
     # Create our target and labels
     X = df[features_to_fit]
-    y = df[-1]
+    y = df["RainTomorrow"]
     #Identifying Numeric and categorical variables
     cat_vars = X.select_dtypes(include = ['object','category']).columns
     con_vars = X.select_dtypes(include = ['number'],exclude=['category']).columns
