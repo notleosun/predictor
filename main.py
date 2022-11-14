@@ -6,14 +6,13 @@ import numpy as np
 from plotly.subplots import make_subplots
 from sklearn import metrics
 from sklearn.linear_model import LinearRegression, LogisticRegression
-from sklearn.linear_model import Ridge
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.compose import ColumnTransformer
+from sklearn.metrics import confusion_matrix
 
 def make_prediction(df, estimator, features_to_fit):
 
@@ -79,3 +78,7 @@ if option == "Main Program (demo)":
 		st.write("Here are the predicted results against the actual results.")
 		st.write(pre_v_res)
 		st.balloons()
+		st.write("This is a confusion matrix of the Logistic Regressor used, which details the number of successful and failed predictions.")
+		cm = confusion_matrix(train["RainTomorrow"], eee)
+		fig2 = px.imshow(cm, labels=dict(x="Predicted", y="Actual")
+		st.plotly_chart(fig2, use_container_width=True)
