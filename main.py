@@ -62,6 +62,10 @@ if option == "Starting Page":
 	st.title("Predictor - Eton College Environmental Hackathon")
 	st.header("A machine-learning algorithm that uses past data and predicts possibility of natural disasters, which is made more prominent by climate change.")
 	st.subheader("Made by Leo Sun (NPTL)")
+	video_file = open('pitcher.mp4', 'rb')
+	video_bytes = video_file.read()
+	st.write("Here is a small video about the program.")
+	st.video(video_bytes)
 if option == "Main Program (demo)":
 	st.write("This will be the dataset used in this demo. Fear not about the value error raised at the bottom of this page -- it will disappear once parameters are placed.")
 	st.write(train)
