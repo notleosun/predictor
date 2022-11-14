@@ -62,6 +62,7 @@ if option == "Starting Page":
 	st.title("Predictor - Eton College Environmental Hackathon")
 	st.header("A machine-learning algorithm that uses past data and predicts possibility of natural disasters, which is made more prominent by climate change.")
 	st.subheader("Made by Leo Sun (NPTL)")
+	st.write("Please note that this app only accepts CLEANED DATASETS, as the model is unable to deal with null values.")
 
 if option == "Main Program (demo)":
 	st.write("This will be the dataset used in this demo. Fear not about the value error raised at the bottom of this page -- it will disappear once parameters are placed.")
