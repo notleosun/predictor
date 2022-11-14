@@ -80,5 +80,5 @@ if option == "Main Program (demo)":
 		st.balloons()
 		st.write("This is a confusion matrix of the Logistic Regressor used, which details the number of successful and failed predictions.")
 		cm = confusion_matrix(train["RainTomorrow"], eee)
-		fig2 = px.imshow(cm, labels=dict(x="Predicted", y="Actual"))
+		fig2 = px.imshow(cm, labels=dict(x="Predicted", y="Actual"), text_auto = True)
 		st.plotly_chart(fig2, use_container_width=True)
